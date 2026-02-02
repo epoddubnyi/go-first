@@ -89,7 +89,7 @@ func Create(c *gin.Context) {
 	}
 
 	query := "INSERT INTO users (name, email) VALUES ($1, $2) RETURNING id, name, email"
-	err := db.Db.QueryRow(query, newUser.Name, newUser.Email).Scan(&newUser.ID)
+	err := db.Db.QueryRow(query, newUser.Name, newUser.Email).Scan(&newUser.ID, &newUser.Name, &newUser.Email)
 	if err != nil {
 		c.JSON(http.StatusInternalServerError, gin.H{"error": err.Error()})
 		return
