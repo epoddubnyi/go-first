@@ -4,6 +4,7 @@ import (
 	"log"
 	"my-first-go-project/config"
 	_ "my-first-go-project/docs"
+	"my-first-go-project/internal/db"
 	"my-first-go-project/internal/users"
 	"os"
 
@@ -18,7 +19,7 @@ func main() {
 	if err != nil {
 		log.Fatal(err)
 	}
-	//db.Connect()
+	db.Connect()
 	r := gin.Default()
 
 	r.GET("/swagger/*any", ginSwagger.WrapHandler(swaggerFiles.Handler))
