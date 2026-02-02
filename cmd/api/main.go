@@ -34,11 +34,7 @@ func main() {
 	port := os.Getenv("PORT")
 	log.Println("PORT: ", port)
 
-	if port == "" {
-		port = "8080"
-	}
-
-	log.Println("Server running on http://localhost:" + port)
+	log.Println("Server running on PORT:" + port)
 	if err := r.Run(":" + port); err != nil {
 		log.Fatal(err)
 	}
