@@ -20,7 +20,7 @@ func LoadConfig() (*DBConfig, error) {
 	fmt.Println(os.Getenv("DB_USER"))
 	cfg := &DBConfig{}
 
-	if err := cleanenv.ReadConfig(".env", cfg); err != nil {
+	if err := cleanenv.ReadEnv(cfg); err != nil {
 		return nil, err
 	}
 
