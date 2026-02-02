@@ -1,0 +1,79 @@
+definitions:
+  users.User:
+    properties:
+      id:
+        type: integer
+      name:
+        type: string
+    required:
+    - name
+    type: object
+info:
+  contact: {}
+paths:
+  /create:
+    get:
+      consumes:
+      - application/json
+      description: Создает нового пользователя
+      parameters:
+      - description: Имя пользователя
+        in: query
+        name: name
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/users.User'
+      summary: Создать пользователя
+      tags:
+      - users
+  /get:
+    get:
+      consumes:
+      - application/json
+      description: Если userId указан, возвращает одного пользователя, иначе — всех
+        пользователей
+      parameters:
+      - description: ID пользователя
+        in: query
+        name: userId
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/users.User'
+      summary: Получить пользователей или одного пользователя
+      tags:
+      - users
+  /update:
+    put:
+      consumes:
+      - application/json
+      description: Обновляет поля пользователя
+      parameters:
+      - description: Новое имя пользователя
+        in: query
+        name: name
+        type: string
+      - description: ID пользователя
+        in: query
+        name: userId
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/users.User'
+      summary: Обновить пользователя
+      tags:
+      - users
+swagger: "2.0"
