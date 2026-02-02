@@ -9,7 +9,7 @@ import (
 
 type DBConfig struct {
 	Host     string `env:"DB_HOST" yaml:"host"`
-	Port     int    `env:"DB_PORT" yaml:"port"`
+	Port     string `env:"DB_PORT" yaml:"port"`
 	User     string `env:"DB_USER" yaml:"user"`
 	Password string `env:"DB_PASSWORD" yaml:"password"`
 }
