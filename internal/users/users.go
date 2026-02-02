@@ -77,8 +77,9 @@ func Get(c *gin.Context) {
 // @Accept json
 // @Produce json
 // @Param name query string false "Имя пользователя"
+// @Param email query string false "Эмейл пользователя"
 // @Success 200 {object} users.User
-// @Router /users/create [get]
+// @Router /users/create [post]
 func Create(c *gin.Context) {
 	var newUser User
 
@@ -104,6 +105,7 @@ func Create(c *gin.Context) {
 // @Accept json
 // @Produce json
 // @Param name query string false "Новое имя пользователя"
+// @Param email query string false "Новый эмейл пользователя"
 // @Param userId query string false "ID пользователя"
 // @Success 200 {object} users.User
 // @Router /users/update [put]

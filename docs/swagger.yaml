@@ -14,7 +14,7 @@ info:
   contact: {}
 paths:
   /users/create:
-    get:
+    post:
       consumes:
       - application/json
       description: Создает нового пользователя
@@ -22,6 +22,10 @@ paths:
       - description: Имя пользователя
         in: query
         name: name
+        type: string
+      - description: Эмейл пользователя
+        in: query
+        name: email
         type: string
       produces:
       - application/json
@@ -63,6 +67,10 @@ paths:
       - description: Новое имя пользователя
         in: query
         name: name
+        type: string
+      - description: Новый эмейл пользователя
+        in: query
+        name: email
         type: string
       - description: ID пользователя
         in: query

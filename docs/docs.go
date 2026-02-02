@@ -16,7 +16,7 @@ const docTemplate = `{
     "basePath": "{{.BasePath}}",
     "paths": {
         "/users/create": {
-            "get": {
+            "post": {
                 "description": "Создает нового пользователя",
                 "consumes": [
                     "application/json"
@@ -33,6 +33,12 @@ const docTemplate = `{
                         "type": "string",
                         "description": "Имя пользователя",
                         "name": "name",
+                        "in": "query"
+                    },
+                    {
+                        "type": "string",
+                        "description": "Эмейл пользователя",
+                        "name": "email",
                         "in": "query"
                     }
                 ],
@@ -95,6 +101,12 @@ const docTemplate = `{
                         "type": "string",
                         "description": "Новое имя пользователя",
                         "name": "name",
+                        "in": "query"
+                    },
+                    {
+                        "type": "string",
+                        "description": "Новый эмейл пользователя",
+                        "name": "email",
                         "in": "query"
                     },
                     {
